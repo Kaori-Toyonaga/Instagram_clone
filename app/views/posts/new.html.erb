@@ -1,0 +1,16 @@
+<%= form_with(model: @post, local: true) do |form| %>
+<table class="menu", align="center">
+  <tr>
+    <td class="menu_left">≺</td>
+    <td class="menu_center">新規投稿</td>
+    <td class="menu_right"><%= form.submit "シェア", class: "save_btn" %></td>
+  </tr>
+</table>
+
+<div class="container" >
+  <div class="row"><font size="2">
+    <!-- <span>%= form.file_field :image %></span> -->
+    <span><%= form.text_field :content, :placeholder => "キャプションを書く", class: "field" %></span>
+  </div>
+</font></div>
+<% end %>

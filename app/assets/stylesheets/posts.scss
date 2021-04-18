@@ -1,3 +1,27 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.menu{
+  padding: 5px;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+}
+
+.menu td {
+  width: 160px;
+}
+
+.save_btn {
+  font-size     : 0.75rem;        /* 文字サイズ */
+  font-weight: bold;
+  background    : #ffffff;     /* 背景色     */
+  color         : #1178F2;     /* 文字色     */
+  border: solid 0px
+}
+
+.field {
+  vertical-align:top;
+  width: 100%;             /* 横幅いっぱいにする */
+  box-sizing: border-box;  /* ※これがないと横にはみ出る */
+  height: auto;
+  font-size: 12px;
+  border: solid 0px;
+}
