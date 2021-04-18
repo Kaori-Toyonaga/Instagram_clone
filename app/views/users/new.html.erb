@@ -1,0 +1,42 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <div class="top"><font size="2">
+    <p class="label"><%= f.label :氏名を入力 %></p>
+    <p><%= f.text_field :name, :placeholder => "姓　名", class: "text_field" %></p>
+    <p class="label"><%= f.label :メールアドレスを入力 %></p>
+    <p><%= f.email_field :email, :placeholder => "abc@xxx.com", class: "text_field" %></p>
+    <p class="label"><%= f.label :パスワードを作成 %></p>
+    <p><%= f.password_field :password, :placeholder => "6文字以上", class: "text_field" %></p>
+    <p class="label"><%= f.label :パスワード確認 %></p>
+    <p><%= f.password_field :password_confirmation, :placeholder => "再度入力してください", class: "text_field" %></p>
+    <p class="label"><%= f.label :プロフィール写真 %></p>
+    <p><%= f.file_field :image %></p>
+
+    <br>
+    <%= f.submit "登録", class: "btn_confirm" %>
+  </font></div>
+<% end %>
+<br>
+<div class="hooter"><font size="2">
+  <p><%= link_to "登録はこちら", new_user_path %></p>
+</font></div>
+
+<div class="hooter"><font size="2">
+  <% flash.each do |key, value| %>
+  　<%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+  <% if logged_in? %>
+    <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+  <% else %>
+  <% end %>
+</div>

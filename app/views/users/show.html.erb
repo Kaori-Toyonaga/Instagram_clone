@@ -1,0 +1,38 @@
+<div class="link">
+  <span class="user_title"><%= link_to "<  ", posts_path %></span>
+  <span class="user_title"><%= current_user.name %></span>
+</div>
+
+<div class="my_page_cover", align="center"><table>
+  <tr>
+    <P><%= image_tag @user.image.url %></p>
+    <p><%= @user.name %></p>
+  </tr>
+  <tr>
+    <!-- <span class="edit_img"><%= link_to image_tag('good.png'), favorites_path %></span> -->
+    <!-- <span class="edit_img"><%= link_to image_tag('edit2.png'), edit_user_path %></span> -->
+    <span class="link">
+      <% flash.each do |key, value| %>
+      　<%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      <% if logged_in? %>
+        <%= link_to image_tag('logout.png'), session_path(current_user.id), method: :delete %>
+      <% else %>
+      <% end %>
+    </span>
+  </tr>
+</table></div>
+
+<div class="container" >
+  <div class="row">
+    <p>連絡先情報</p>
+    <p>
+      <span><%= image_tag('mail.png') %></span>
+      <span class="personal_info"><%= @user.email %></span>
+    </p>
+    <p>
+      <span><%= image_tag('pass.png') %></span>
+      <span class="personal_info">**********</span>
+    </p>
+  </div>
+</div>
