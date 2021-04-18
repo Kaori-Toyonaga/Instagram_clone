@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-ruby '2.6.5'
+# ruby '2.6.5'
 gem 'rails', '~> 5.2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
@@ -35,3 +35,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt', '3.1.11'
 gem 'faker'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'mimemagic', '0.3.7'

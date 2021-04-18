@@ -9,8 +9,8 @@
     <p><%= @user.name %></p>
   </tr>
   <tr>
-    <!-- <span class="edit_img"><%= link_to image_tag('good.png'), favorites_path %></span> -->
-    <!-- <span class="edit_img"><%= link_to image_tag('edit2.png'), edit_user_path %></span> -->
+    <!-- <span class="edit_img">%= link_to image_tag('good.png'), favorites_path %></span> -->
+    <!-- <span class="edit_img">%= link_to image_tag('edit2.png'), edit_user_path %></span> -->
     <span class="link">
       <% flash.each do |key, value| %>
       　<%= content_tag(:div, value, class: "#{key}") %>
