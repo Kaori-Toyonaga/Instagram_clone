@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: Pinstagram_development
+
+test:
+  <<: *default
+  database: Pinstagram_test
+
+production:
+  <<: *default
+  database: Pinstagram_production
+  username: Pinstagram
+  password: <%= ENV['PINSTAGRAM_DATABASE_PASSWORD'] %>
