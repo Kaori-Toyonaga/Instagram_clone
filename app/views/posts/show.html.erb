@@ -2,7 +2,7 @@
 
 <div class="link">
   <span class="user_title"><%= link_to '<', posts_path %></span>
-  <span class="user_title"><%= @post.user.name%></span>
+  <span class="user_title"><%= current_user.name%></span>
 </div>
 
 <div class="container" >
@@ -12,5 +12,12 @@
     <p class="img">
       <%= image_tag @post.image.url if @post.image.present? && @post.image.url.present? %>
     </p>
+  <% unless @post.user_id == current_user.id %>
+    <% if @favorite.present? %>
+    <%= link_to image_tag('favorite.png'), favorite_path(id: @post.id), method: :delete %>
+  <% else %>
+    <%= link_to image_tag('favorite_not_yet.png'), favorites_path(post_id: @post.id), method: :post %>
+  <% end %>
+  <% end %>
   </div>
 </div>

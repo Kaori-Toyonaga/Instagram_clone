@@ -21,8 +21,19 @@
     <p class="watch"><%= link_to 'もっと見る', post_path(post.id) %></p>
     <p class="img"><%= image_tag(post.image.url) if post.image && post.image.url %></p>
 
+      <% unless post.user_id == current_user.id %>
+        <% if @favorite.present? %>
+          <%= link_to image_tag('favorite.png'), favorite_path(id: @favorite.id), method: :delete %>
+        <% else %>
+          <%= link_to image_tag('favorite_not_yet.png'), favorites_path(post_id: post.id), method: :post %>
+        <% end %>
+      <% end %>
+
+        <% if post.user_id == current_user.id %>
       <span class=""><%= link_to image_tag('edit.png'), edit_post_path(post.id) %></span>
       <span class=""><%= link_to image_tag('delete.png'), post_path(post.id), method: :delete , data: { confirm: '投稿を削除' } %></span>
+      <% else %>
+      <% end %>
   </div>
 </div>
 <% end %>

@@ -1,0 +1,17 @@
+<%= image_tag 'logo.png' %>
+
+<div class="link">
+  <span class="user_title"><%= link_to '<', posts_path %></span>
+  <span class="user_title"><%= current_user.name %></span>
+</div>
+
+<P class="menu_center">いいね一覧</P>
+<% @favorites.each do |favorite| %>
+<div class="container" >
+  <div class="row">
+    <p class="user_name"><%= favorite.post.user.name %></p>
+    <p class="field"><%= favorite.post.content %></p>
+    <p class="img"><%= image_tag(favorite.post.image.url) if favorite.post.image && favorite.post.image.url %></p>
+  </div>
+</div>
+<% end  %>
