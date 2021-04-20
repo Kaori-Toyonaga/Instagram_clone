@@ -1,0 +1,16 @@
+<%= image_tag 'logo.png' %>
+
+<div class="link">
+  <span class="user_title"><%= link_to '<', posts_path %></span>
+  <span class="user_title">%= @post.user.name%></span>
+</div>
+
+<div class="container" >
+  <div class="row">
+    <p class="user_name">%= @post.user.name %></p>
+    <p class="field"><%= @post.content %></p>
+    <p class="img">
+      <%= image_tag @post.image.url if @post.image.present? && @post.image.url.present? %>
+    </p>
+  </div>
+</div>
