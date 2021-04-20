@@ -16,7 +16,7 @@
 <% @posts.each do |post| %>
 <div class="container" >
   <div class="row">
-    <p class="user_name">%= post.user.name %></p>
+    <p class="user_name"><%= post.user.name %></p>
     <p class="line-clamp"><%= post.content %></p>
     <p class="watch"><%= link_to 'もっと見る', post_path(post.id) %></p>
     <p class="img"><%= image_tag(post.image.url) if post.image && post.image.url %></p>
