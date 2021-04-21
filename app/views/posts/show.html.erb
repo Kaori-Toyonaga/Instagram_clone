@@ -9,7 +9,7 @@
   <div class="row">
     <p class="user_name"><%= @post.user.name %></p>
     <p class="field"><%= @post.content %></p>
-    <p class="img">
+    <p class="image">
       <%= image_tag @post.image.url if @post.image.present? && @post.image.url.present? %>
     </p>
   <% unless @post.user_id == current_user.id %>
