@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  validates :name, presence: true, on: :create
+  validates :name, presence: true
   validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, on: :create
-  validates :email, uniqueness: true, on: :create
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, uniqueness: true
   before_validation { email.downcase! }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, on: :create
