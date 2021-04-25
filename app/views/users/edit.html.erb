@@ -1,19 +1,40 @@
 <%= form_with(model: @user, local: true) do |form| %>
-<table class="menu", align="center">
-  <td class="menu_left"><%= link_to "<", posts_path %></td>
-  <td class="menu_center">プロフィールの編集</td>
-  <td class="menu_right"><%= form.submit "保存する", class: "save_btn" %></td>
-</table>
-
-<div class="container" >
-  <div class="row">
-    <div>
-      <p><%= form.label :プロフィール写真 %></p>
-    　<p><%= form.file_field :image %></p>
-    　<p><%= form.label :氏名　 %><%= form.text_field :name, class: "prof_field" %></p>
-    　<p><%= form.label :メールアドレス　 %><%= form.email_field :email, class: "prof_field" %></p>
-    　<p><%= form.label :パスワード　 %><%= form.password_field :password, class: "prof_field" %></p>
-　　</div>
-　</div>
+<div class="container">
+  <div class="row" class="prof_edit_menu">
+    <p class="col-xs-4"><%= link_to "キャンセル", posts_path %></p>
+  　<p class="col-xs-4">プロフィールの編集</p>
+  　<p class="col-xs-4"><%= form.submit "完了", class: "save_btn" %></p>
+  </div>
 </div>
+
+<div class="container" class="prof_edit_image">
+  <div class="row">
+    <p><%= image_tag @user.image.url, size: '150x150', class:"prof_edit_icon" %></p>
+    <p><%= form.label :プロフィール写真を変更, class:"prof_edit_image_label" %></p>
+    <p><%= form.file_field :image, class: "prof_edit_file_field" %></p>
+  </div
+</div>
+
+<table class="container" class="prof_edit">
+  <div class="row">
+    <span class="col-xs-3"> </span>
+    <span class="col-xs-3"><%= form.label :氏名, class: "prof_label" %></span>
+    <span class="col-xs-3"><%= form.text_field :name, class: "prof_field" %></span>
+    <span class="col-xs-3"> </span>
+  </div >
+
+  <div class="row">
+    <span class="col-xs-3"> </span>
+    <span class="col-xs-3"><%= form.label :メールアドレス, class: "prof_label" %></span>
+    <span class="col-xs-3"><%= form.email_field :email, class: "prof_field" %></span>
+    <span class="col-xs-3"> </span>
+  </div >
+
+  <div class="row">
+    <span class="col-xs-3"> </span>
+    <span class="col-xs-3"><%= form.label :パスワード, class: "prof_label" %></span>
+    <span class="col-xs-3"><%= form.password_field :password, class: "prof_field" %></span>
+    <span class="col-xs-3"> </span>
+  </div >
+</table>
 <% end %>

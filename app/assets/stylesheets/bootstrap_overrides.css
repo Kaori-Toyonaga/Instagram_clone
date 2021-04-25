@@ -1,0 +1,15 @@
+.btn-outline-dark {
+  width: 100%;
+  color: inherit;
+  background: #FFF;
+  border: solid 1px;
+}
+
+.card {
+  text-align: center;
+  vertical-align: top;
+  width: 250px;
+  height: 250px;
+  padding: 2rem 2rem;
+  float: left;
+}

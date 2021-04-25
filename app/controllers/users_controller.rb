@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = Post.where(user_id: current_user.id).all
   end
 
   def new
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path
     else
-      render :edit
+      render :edit, alert: "氏名かメールアドレスが空欄です。"
     end
   end
 

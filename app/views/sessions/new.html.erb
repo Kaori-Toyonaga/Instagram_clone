@@ -1,19 +1,22 @@
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <div class="top"><font size="2">
-    <%= image_tag 'prof.png', size: "30x30" %>
-    <P><%= f.email_field :email, :placeholder => "メールアドレス", class: "text_field" %></P>
-    <P><%= f.password_field :password, :placeholder => "パスワード", class: "text_field" %></P>
-    <%= f.submit "ログイン", class: "btn_confirm" %>
-  </font></div>
-<% end %>
-
-<div class="hooter"><font size="2">
-<% flash.each do |key, value| %>
-  　<%= content_tag(:div, value, class: "#{key}") %>
-<% end %>
-  <% if logged_in? %>
-    <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-  <% else %>
-    <%= link_to "登録はこちら", new_user_path %>
+<div class="container-fluid"><font size="2">
+  <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+  <P><%= image_tag 'logo.png', class: "logo" %></P>
+  <P><%= f.email_field :email, :placeholder => "メールアドレス", class: "text_field" %></P>
+  <P><%= f.password_field :password, :placeholder => "パスワード", class: "text_field" %></P>
+  <br><br><br>
+  <P><%= f.submit "ログイン", class: "btn_confirm" %></P>
   <% end %>
+
+  <p class="hooter">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+
+    <% if logged_in? %>
+      <span><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></span>
+    <% else %>
+      <span class="guide">アカウントを持っていない場合</span>
+      <span><%= link_to "登録はこちら", new_user_path %></span>
+    <% end %>
+  </p>
 </font></div>

@@ -9,29 +9,30 @@
   </div>
 <% end %>
 
+<div class="container-fluid"><font size="2">
 <%= form_with(model: @user, local: true) do |f| %>
-  <div class="top"><font size="2">
-    <p class="label"><%= f.label :氏名を入力 %></p>
+  <div class="top">
+    <P><%= image_tag 'logo.png', class: "logo" %></P>
+    <p><%= f.label :名前を追加してください, class: "label" %></p>
     <p><%= f.text_field :name, :placeholder => "姓　名", class: "text_field" %></p>
-    <p class="label"><%= f.label :メールアドレスを入力 %></p>
+    <p><%= f.label :メールアドレスを入力, class: "label" %></p>
     <p><%= f.email_field :email, :placeholder => "abc@xxx.com", class: "text_field" %></p>
-    <p class="label"><%= f.label :パスワードを作成 %></p>
+    <p><%= f.label :パスワードを作成, class: "label" %></p>
     <p><%= f.password_field :password, :placeholder => "6文字以上", class: "text_field" %></p>
-    <p class="label"><%= f.label :パスワード確認 %></p>
+    <p><%= f.label :パスワード確認, class: "label" %></p>
     <p><%= f.password_field :password_confirmation, :placeholder => "再度入力してください", class: "text_field" %></p>
-    <p class="label"><%= f.label :プロフィール写真 %></p>
-    <p><%= f.file_field :image %></p>
+    <p><%= f.label :プロフィール写真を登録, class: "label" %></p>
+    <p><%= f.file_field :image, class: "file_field" %></p>
 
-    <br>
+    <br><br><br>
     <%= f.submit "登録", class: "btn_confirm" %>
-  </font></div>
+  </div>
 <% end %>
-<br>
-<div class="hooter"><font size="2">
-  <p><%= link_to "登録はこちら", new_user_path %></p>
-</font></div>
+  <br>
 
-<div class="hooter"><font size="2">
+  <div class="hooter">
+    <p><%= link_to "ログイン", new_session_path %></p>
+
   <% flash.each do |key, value| %>
   　<%= content_tag(:div, value, class: "#{key}") %>
   <% end %>
@@ -39,4 +40,5 @@
     <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
   <% else %>
   <% end %>
-</div>
+  </div>
+</font></div>
