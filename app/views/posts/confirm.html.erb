@@ -1,13 +1,18 @@
-<%= form_with(model: @post, url: posts_path, local: true) do |form| %>
-  <%= form.hidden_field :content %>
-  <p><%= @post.content %></p>
+<div class="container">
+  <div class="row" class="prof_edit_menu">
+    <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+    <p class="col-xs-4"><%= form.submit "保存する", class: "save_btn" %></p>
+    <p class="col-xs-4">投稿</p>
 
-  <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit "保存する" %>
-<% end %>
+    <%= form_with(model:@post, url: posts_path, local:true, method:"get") do |form| %>
+      <%= form.hidden_field :image_cache %>
+      <%= form.submit "×", name: 'back', class: "save_btn" %>
+    <% end %>
+  </div>
 
-<%= form_with(model:@post, url: posts_path, local:true, method:"get") do |form| %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit "戻る", name: 'back' %>
-<% end %>
+    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.hidden_field :content %>
+    <p><%= @post.content %></p>
+    <% end %>
+</div>
