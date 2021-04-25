@@ -1,17 +1,48 @@
-<%= image_tag 'logo.png' %>
-
-<div class="link">
-  <span class="user_title"><%= link_to '<', posts_path %></span>
-  <span class="user_title"><%= current_user.name %></span>
-</div>
-
-<P class="menu_center">いいね一覧</P>
-<% @favorites.each do |favorite| %>
-<div class="container" >
+<div class="container">
   <div class="row">
-    <p class="user_name"><%= favorite.post.user.name %></p>
-    <p class="field"><%= favorite.post.content %></p>
-    <p class="img"><%= image_tag(favorite.post.image.url) if favorite.post.image && favorite.post.image.url %></p>
+    <span class="col-xs-3"><a class="name"><%= current_user.name %></a></span>
+    <span class="col-xs-1"><a class="name"><%= link_to "▶▶", posts_path %></a></span>
+    <span class="col-xs-5"> </span>
+    <span class="col-xs-1"><%= link_to image_tag('new.png', size: '15x15'), new_post_path %></span>
+    <span class="col-xs-1"><%= link_to image_tag('favorite.png', size: '15x15'), favorites_path %></span>
+    <span class="col-xs-1">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+        <% if logged_in? %>
+          <%= link_to image_tag('logout.png', size: '15x15'), session_path(current_user.id), method: :delete %>
+        <% else %>
+        <% end %>
+    </span>
   </div>
+
+  <div class="row">
+    <span class="col-xs-4">
+      <p><%= image_tag current_user.image.url, class:"user-icon"  %></p>
+      <p class="sub_name"><%= current_user.name %></p>
+    </span>
+    <span class="col-xs-4">
+      <p class="count"><%= @posts_count %></p>
+      <p class="count">投稿</p>
+    </span>
+    <span class="col-xs-4">
+      <p  class="count"><%= @favorites_count %></p>
+      <p class="count">ピン止め</p>
+    </span>
+  </div>
+
+  <div class="favorite_index">
+    <span><%= link_to image_tag('favorite.png', size: '15x15')%></span>
+    <span>ピン止め</span>
+    <span><%= link_to image_tag('favorite.png', size: '15x15')%></span>
+  </div>
+
+  <% @favorites.each do |favorite| %>
+　<div  class="card">
+  　<div img class="card-img">
+    　<p><%= favorite.post.user.name %></p>
+  　  <p><%= image_tag(favorite.post.image.url) if favorite.post.image && favorite.post.image.url %></p>
+  　</div>
+　</div>
+　<% end  %>
 </div>
-<% end  %>

@@ -1,19 +1,17 @@
-<%= form_with(model: @post, local: true) do |form| %>
-<table class="menu", align="center">
-  <tr>
-    <td class="menu_left">≺</td>
-    <td class="menu_center">新規投稿</td>
-    <td class="menu_right"><%= form.submit "シェア", class: "save_btn" %></td>
-  </tr>
-</table>
+<%= form_with(model: @post, local: true, url: confirm_posts_path) do |form| %>
+<div class="container">
+  <div class="row" class="prof_edit_menu">
+    <p class="col-xs-4">≺</p>
+    <p class="col-xs-4">新規投稿</p>
+    <p class="col-xs-4"><%= form.submit "シェア", class: "save_btn" %></p>
+  </div>
+</div>
 
 <div>
 </div>
 
-<div class="container" >
-  <div class="row"><font size="2">
-    <span><%= form.file_field :image %></span>
-    <span><%= form.text_field :content, :placeholder => "キャプションを書く", class: "field" %></span>
-  </font></div>
+<div class="post_content" >
+  <%= form.file_field :image %>
+  <%= form.text_field :content, :placeholder => "キャプションを書く", class: "new_field" %>
 </div>
 <% end %>

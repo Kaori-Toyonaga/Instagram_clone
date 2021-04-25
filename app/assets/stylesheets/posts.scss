@@ -1,41 +1,41 @@
-// .container {
-//   width: 500px;
-//   height: auto;
-//   overflow: hidden;
-//   color:#2D2D31;
-//   margin: auto;
-//   padding: 5px;
-//   border: solid 0px
-// }
-//
-// .container a {
-//   text-decoration: none;
-// }
-//
-// .menu{
-//   padding: 5px;
-//   position: fixed;
-//   width: 100%;
-//   text-align: center;
-//   height: 5rem;
-// }
-//
-// .menu td {
-//   width: 160px;
-// }
-//
-// .save_btn {
-//   font-size     : 0.75rem;        /* 文字サイズ */
-//   font-weight: bold;
-//   background    : #ffffff;     /* 背景色     */
-//   color         : #1178F2;     /* 文字色     */
-//   border: solid 0px
-// }
-//
-// .field {
-//   vertical-align:top;
-//   width: 480px;             /* 横幅いっぱいにする */
-//   box-sizing: border-box;  /* ※これがないと横にはみ出る */
-//   height: auto;
-//   font-size: 12px;
-// }
+.post_user {
+  width: 500px;
+  text-align: left;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.post_name {
+  width: 500px;
+  text-align: left;
+  margin: auto;
+}
+
+.post_img {
+  margin-top: 2rem;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post_content {
+  width: 500px;
+  text-align: left;
+  margin: auto;
+}
+
+.new_field {
+  text-align: left;
+  border: 0px;
+  margin-top: 2rem;
+}
+
+.favorite_index p {
+  margin-top: 2rem;
+  font-weight: bold;
+}

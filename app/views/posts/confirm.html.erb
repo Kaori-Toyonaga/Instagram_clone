@@ -1,6 +1,6 @@
 <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
   <%= form.hidden_field :content %>
-  <p><%= @Post.content %></p>
+  <p><%= @post.content %></p>
 
   <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
   <%= form.hidden_field :image_cache %>
