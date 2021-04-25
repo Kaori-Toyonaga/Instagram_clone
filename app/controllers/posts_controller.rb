@@ -18,7 +18,7 @@ class PostsController < ApplicationController
      render :new
    else
      if @post.save
-       # ContactMailer.contact_mail(@post).deliver
+       ContactMailer.contact_mail(@post).deliver
        redirect_to posts_path
      else
        render :new
