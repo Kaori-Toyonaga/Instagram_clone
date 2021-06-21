@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#　開発言語
+* Ruby version：Ruby2.6.5
+* Rails version：Rails5.2.5
 
-Things you may want to cover:
+#　就業Termの技術
+* フォロー機能
+* お気に入り機能
 
-* Ruby version
+#　カリキュラム外の技術
+* google MAPとのAPI連携
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#　実行手順
+$git clone git@github.com:Kaori-Toyonaga/Instagram_clone.git
+$cd Pinstagram
+$bundle install
+$rails db:create && rails db:migrare
+$rails s

@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = Post.where(user_id: current_user.id).all
+    if @user != current_user
+      redirect_to user_path(icurrent_user), alert: "不正なアクセスです。"
+    end
   end
 
   def new
