@@ -17,3 +17,12 @@ $cd Pinstagram
 $bundle install
 $rails db:create && rails db:migrare
 $rails s
+
+#　カタログ設計
+https://1drv.ms/p/s!AqWajwGVwxdYlkdWML3oTSZXC-j8?e=LzzW73
+
+#　テーブル定義書
+* 同上
+
+#　ワイヤーフレーム
+* 同上
